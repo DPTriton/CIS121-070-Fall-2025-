@@ -1,4 +1,4 @@
-// Ask the user to enter first and last name. Display a message “Hello, [last name]”.
+// Ask the user to enter first and last name. Display a message â€œHello, [last name]â€.
 #include <iostream>
 #include <string>
 
@@ -20,3 +20,4 @@ int main() {
 	cout << "Hello," << " " << lastname << endl;
 	return 0;
 }
+
