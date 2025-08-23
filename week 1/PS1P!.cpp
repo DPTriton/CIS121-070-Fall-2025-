@@ -1,0 +1,22 @@
+// Ask the user to enter first and last name. Display a message “Hello, [last name]”.
+#include <iostream>
+#include <string>
+
+
+// Removes the need to use std
+using namespace std;
+
+int main() {
+	// Holds the user's first and last name as variables
+	string firstname;
+	string lastname;
+	// asks the user for their first and last name
+	cout << "Enter your first name and last name: ";
+	// takes input from user and puts it in the variable firstname
+	cin >> firstname;
+	// takes input from user and puts it in the variable lastname
+	cin >> lastname;
+	// greets the user using their last name
+	cout << "Hello," << " " << lastname << endl;
+	return 0;
+}
