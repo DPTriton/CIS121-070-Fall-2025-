@@ -1,0 +1,29 @@
+// Allow the user to enter the quantity and unit price (price per item). Compute extended price (quantity x price).Display the extended price.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	// defines quantity as an integer
+	int quantity;
+
+	// stores price and extendedprice as floating point numbers
+	double price;
+	double extendedprice;
+
+	// asks the user to enter quantity and price of the item
+	cout << "Enter quantity and price of the item: ";
+
+	// takes input from user and puts it in the variable quantity and price
+	cin >> quantity >> price;
+
+	// calculates extended price
+	extendedprice = quantity * price;
+
+	// displays the extended price
+	cout << "The extended price is: $" << extendedprice << endl;
+
+	return 0;
+
+}
