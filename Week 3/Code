@@ -1,0 +1,41 @@
+	// Problem: Enter the total for a meal. Compute a tip at 15%. Display total, tip and total with tip.
+
+	#include <iostream>
+	#include <iomanip>
+
+	using namespace std;
+
+
+	int main() {
+		// defines mealprice as a floating point number
+		double mealprice;
+
+		// defines tip as floating point numbers
+		double tip;
+		// defines total as a floating point number
+		double total;
+
+		// asks the user to enter the total for a meal
+		cout << "Enter the total for a meal: ";
+	
+		// takes input from user and puts it in the variable mealprice
+		cin >> mealprice;
+
+		// calculates tip at 15%
+		tip = mealprice * 0.15;
+
+		// calculates total with tip
+		total = mealprice + tip;
+		
+		// sets the output to limit the decimal places to 2
+		cout << fixed << setprecision(2);
+
+		// displays the total, tip and total with tip
+		cout << "The total is: $" << mealprice << endl;
+
+		cout << "The tip is: $" << tip << endl;
+
+		cout << "The total with tip is: $" << total << endl;
+
+		return 0;
+	}
