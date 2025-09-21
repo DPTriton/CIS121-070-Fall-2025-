@@ -1,0 +1,45 @@
+//  Allow a user to enter a quantity of an item. If the quantity is greater than or equalto 1000, the unit price should be $3.00.For quantities under 1000 the unit price is
+// $5.00.Compute extended price to be quantity x unit price.Compute tax to be 7 %
+// of the extended price.The total is computed as extended price plus the tax.
+// Display the quantity, unit price, extended price, tax and total
+ 
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+	// names the variables
+	int quantity;
+	double extendedprice;
+	double total;
+	double unitprice;
+	double tax;
+
+	// asks the user to enter quantity amount of an item and takes inputwwwwwww
+	cout << "Enter quantity amount of an item: ";
+	cin >> quantity;
+	// uses else if to determine the unit price based on the quantity
+
+	if (quantity >= 1000)
+			unitprice = 3.00;
+		else
+			unitprice = 5.00;
+
+	// calculates extended price, tax and total
+		extendedprice = quantity * unitprice;
+		tax = extendedprice * 0.07;
+		total = extendedprice + tax;
+
+		// displays the quantity, unit price, extended price, tax and total
+		cout << fixed << setprecision(2);
+		cout << "The quantity is: " << quantity << endl;
+		cout << "The unit price is: $" << unitprice << endl;
+		cout << "The extended price is: $" << extendedprice << endl;
+		cout << "The tax is: $" << tax << endl;
+		cout << "The total is: $" << total << endl;
+
+		return 0;
+}
+
