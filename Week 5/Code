@@ -1,1 +1,32 @@
+//The student will enter their last name and score. Determine their letter grade using the scale
+//below.Display the student last name and letter grade.
+//Score Letter Grade
+//90 & up A
+//80 to 89 B
+//70 to 79 C
+//60 to 69 D
+//Below 60 F
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	string lastname;
+	int score;
+	cout << "Enter your last name ";
+	cin >> lastname;
+	cout << "Enter your score ";
+	cin >> score;
+	if (score >= 90)
+		cout << lastname << " " << "You received an A" << endl;
+	else if (score >= 80)
+		cout << lastname << " " << "You received a B" << endl;
+	else if (score >= 70)
+		cout << lastname << " " << "You received a C" << endl;
+	else if (score >= 60)
+		cout << lastname << " " << "You received a D" << endl;
+	else
+		cout << lastname << " " << "You received an F" << endl;
+
+}
