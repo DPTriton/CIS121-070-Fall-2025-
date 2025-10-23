@@ -1,0 +1,34 @@
+/*Enter destination city, miles travelled to get there and gallons of gasoline used for any number
+of trips entered at the keyboard (use ctl+z to stop). Use a function to compute miles per gallon.
+Display the destination city and miles per gallon for each trip entered. Sum the miles travelled
+and give a count of the number of trips made. Display these at the end of the program.*/
+
+#include <iomanip>
+#include <iostream>
+#include <string>
+using namespace std;
+
+float gpm(int miles, int gallons) {
+    return static_cast<float>(miles) / gallons;
+}
+
+int main() {
+    string city;
+    int miles, gallons;
+    int totalmiles = 0, tripcount = 0;
+
+    cout << fixed << setprecision(2);
+    cout << "Enter destination city, miles travelled and gallons used (use Ctrl+Z + Enter to stop): " << endl;
+    while (cin >> city >> miles >> gallons) {
+        float mpg = gpm(miles, gallons);
+        totalmiles += miles;
+        tripcount++;
+
+        cout << "Destination: " << city << ", Miles per Gallon: " << mpg << endl;
+    }
+
+    cout << "Total miles travelled: " << totalmiles << endl;
+    cout << "Number of trips made: " << tripcount << endl;
+
+    return 0;
+}
