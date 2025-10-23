@@ -1,0 +1,61 @@
+// Task:  The input to the problem is quantity of widgets and customer status. You set the
+// price based upon quantity and status using the table below.Your program should
+// determine the price to charge based on the schedule below.
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int quantity;
+    double extendedprice;
+    double price;
+    double tax;
+        char status;
+
+    cout << "Enter quantity amount of an item: ";
+    cin >> quantity;
+    cout << "Enter your status (A, B, C, D): ";
+    cin >> status;
+
+    switch (status) {
+        case 'A':
+            if (quantity > 10000)
+                price = 10.00;
+            else
+                price = 30.00;
+            break;
+        case 'B':
+            if (quantity > 10000)
+                price = 12.00;
+            else
+                price = 30.00;
+            break;
+        case 'C':
+            if (quantity >= 5000 && quantity <= 10000)
+                price = 20.00;
+            else
+                price = 30.00;
+            break;
+        case 'D':
+            if (quantity >= 5000 && quantity <= 10000)
+                price = 22.00;
+            else
+                price = 30.00;
+            break;
+        default:
+            price = 30.00;
+            break;
+    }
+
+    extendedprice = quantity * price;
+    tax = extendedprice * 0.07;
+
+    cout << fixed << setprecision(2);
+    cout << "The extended price is: $" << extendedprice << endl;
+    cout << "The tax is: $" << tax << endl;
+    cout << "The total is: $" << extendedprice + tax << endl;
+
+    return 0;
+}
