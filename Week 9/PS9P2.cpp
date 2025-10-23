@@ -1,0 +1,36 @@
+//Enter players last name, number of hits and at bats at the keyboard, use ctl+z to stop. Use a
+//function to compute batting average. Pass the hits and at bats to the function. The function
+//should return batting average (at bats / number of hits). Display last name and batting average.
+//Give a count of the number of players entered and display the count after the loop
+
+#include <iomanip>
+#include <iostream>
+#include <string>
+using namespace std;
+
+// calculates batting average
+float battingAverage(int hits, int atBats) {
+	return static_cast<float>(hits) / atBats;
+}
+int main() {
+
+	// ask the user to enter last name number of hits and at bats
+	cout << "enter last name, number of hits, and at bats (use ctl+z to stop): " << endl;
+	string lastName;
+	int hits, atBats;
+
+	// keepts count of number of players entered
+	int playerCount = 0;
+	cout << fixed << setprecision(3);
+
+	// loop
+	while (cin >> lastName >> hits >> atBats) {
+		float average = battingAverage(hits, atBats);
+		// adds to the player count
+		playerCount++;
+		cout << "Last Name: " << lastName << ", Batting Average: " << average << endl;
+	}
+	// displays the total players entered
+	cout << "Number of players entered: " << playerCount << endl;
+	return 0;
+}
