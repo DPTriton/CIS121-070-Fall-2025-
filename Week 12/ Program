@@ -1,0 +1,60 @@
+//Develop a structure that holds student first name, student last name, district code(I or O),
+//enrolled credit hours and tuition balance.Make the structure a global structure by defining it
+//outside of main and before any functions.
+//Next, use this structure to create a dynamic vector.Write a loop that repeatedly prompts 
+the 
+//user for first name, last name, district code, and credits taken.Use ctl + z to stop.
+//For each user input, create a vector occurrence.Call a function to compute tuition.Pass to this
+//function district code and enrolled credits and charge $250.00 per credit hour for in district
+//students(district code == ‘I’) and 500.00 per credit hours for all other students.The function
+//should compute and return tuition owed(enrolled credits x charge per credit hour).Load the
+//tuition owed into the vector.
+//Lastly, call another function to display each occurrence of the vector.Use a range - based loop to
+//accomplish this.At the end display the number of students(number of vector occurrences) by
+//using the size method of the vector.
+#include <iostream>
+#include <string>
+#include <vector>
+#include <iomanip>
+#include <cctype> 
+using namespace std;
+struct student {
+string first_name;
+string last_name;
+char district_code;
+int enrolled_credits;
+double tuition_balance;
+};
+double compute_tuition(char district_code, int enrolled_credits);
+// Function to display the students
+void display_students(const vector<student>& students) {
+cout << "\nStudent Tuition Balances:\n";
+for (const auto& stud : students) {
+cout << stud.first_name << " " << stud.last_name << ": $" << stud.tuition_balance << '\n';
+}
+}
+int main() {
+vector<student> students;
+cout << fixed << setprecision(2);
+cout << "Enter student information (first name, last name, district code, enrolled credits). Press Ctrl+Z to stop." << endl;
+string first, last;
+char code;
+int credits;
+while (cin >> first >> last >> code >> credits) {
+// normalize district code to uppercase
+code = toupper(static_cast<unsigned char>(code));
+if (credits < 0) {
+cerr << "Invalid credits for " << first << ". Skipping.\n";
+continue;
+}
+double tuition = compute_tuition(code, credits);
+students.push_back({first, last, code, credits, tuition});
+}
+display_students(students);
+cout << "\nTotal number of students: " << students.size() << endl;
+return 0;
+}
+double compute_tuition(char district_code, int enrolled_credits) {
+double charge_per_credit = (district_code == 'I') ? 250.00 : 500.00;
+return enrolled_credits * charge_per_credit;
+
