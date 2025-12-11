@@ -1,0 +1,41 @@
+/*Read gallons of gas used and miles travelled from a file. See trips.txt below. For each trip
+compute miles per gallon within a function.
+Pass to the function gallons and miles. Within the function:
+1. Compute mpg = miles / gallons.
+2. Return mpg.
+For each trip (line of data) display gallons, miles and mpg.
+Sum miles travelled and gallons of gas used.
+After all data is processed (end of file) display sum of gallons and sum of miles travelled
+Trips.txt
+20 500
+10 600
+5 50
+10 350*/
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+// Function to calculate miles per gallon
+double computeMPG(double gallons, double miles) {
+return miles / gallons;
+}
+int main() {
+// Try to open the file
+ifstream infile(R"(C:\Users\DOZO\Documents\trips.txt)");
+double gallons, miles;
+double totalGallons = 0.0, totalMiles = 0.0;
+cout << fixed << setprecision(2);
+cout << "Gallons Miles MPG" << endl;
+// Read each line from the file
+while (infile >> gallons >> miles) {
+double mpg = computeMPG(gallons, miles);
+// polished the lines to add better readability
+cout << setw(7) << gallons << " " << setw(7) << miles << " " << setw(7) << mpg << endl;
+totalGallons += gallons;
+totalMiles += miles;
+}
+cout << "Total gallons used: " << totalGallons << endl;
+cout << "Total miles travelled: " << totalMiles << endl;
+infile.close();
+return 0;
+
